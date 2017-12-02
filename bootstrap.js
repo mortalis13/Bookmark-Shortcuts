@@ -7,7 +7,7 @@ Cu.import("resource://gre/modules/Services.jsm")
 
 var prefsPrefix="extensions.bookmark_shortcuts_qwe."
 const keyProps={
-	id:"key_Bookmark-"
+  id:"key_Bookmark-"
 }
 
 var self=this,prefs={}
@@ -37,10 +37,10 @@ function startup(data,reason){
 
 function shutdown(data,reason){
   Services.prefs.removeObserver(prefs["sameTabModifier"],prefObserver,false)
-	if(reason==ADDON_DISABLE){
-		Services.ww.unregisterNotification(windowWatcher)
-		eachWindow(unloadFromWindow)												//ui destroying function
-	}
+  if(reason==ADDON_DISABLE){
+    Services.ww.unregisterNotification(windowWatcher)
+    eachWindow(unloadFromWindow)                        //ui destroying function
+  }
 }
 
 /* ****************************************** add functions ************************************************ */
@@ -49,23 +49,23 @@ function include(data, path){                          //load scripts
   Services.scriptloader.loadSubScript(data.resourceURI.spec + path, self)
 }
 
-function pref(name,value){														//get/set prefs
-	if(value===undefined){
-		switch(Services.prefs.getPrefType(name)){
-			case 0:return null
-			case 32:return Services.prefs.getCharPref(name)
-			case 64:return Services.prefs.getIntPref(name)
-			case 128:return Services.prefs.getBoolPref(name)
-		}
-	}
-	if(value==="") Services.prefs.clearUserPref(name)
-	else{
-		switch(typeof value){
-			case "boolean":Services.prefs.setBoolPref(name,value);return
-			case "number":Services.prefs.setIntPref(name,value);return
-			default:Services.prefs.setCharPref(name,value)
-		}
-	}
+function pref(name,value){                            //get/set prefs
+  if(value===undefined){
+    switch(Services.prefs.getPrefType(name)){
+      case 0:return null
+      case 32:return Services.prefs.getCharPref(name)
+      case 64:return Services.prefs.getIntPref(name)
+      case 128:return Services.prefs.getBoolPref(name)
+    }
+  }
+  if(value==="") Services.prefs.clearUserPref(name)
+  else{
+    switch(typeof value){
+      case "boolean":Services.prefs.setBoolPref(name,value);return
+      case "number":Services.prefs.setIntPref(name,value);return
+      default:Services.prefs.setCharPref(name,value)
+    }
+  }
 }
 
 var prefObserver={                                          // prefs observer handle

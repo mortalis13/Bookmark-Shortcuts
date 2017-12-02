@@ -1,1 +1,0 @@
-- opens folders in the bookmark toolbar only if the toolbar is visible
