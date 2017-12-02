@@ -24,6 +24,10 @@ Main addon features:
 
 ---
 
+To **install** the addon go to [releases](https://github.com/mortalis13/Bookmark-Shortcuts/releases) and click on the **.xpi** file or download and drag it to the browser window.
+
+---
+
 For **Firefox 57+** you should install the addon in the **Nightly** version of the browser. Before installation the browser needs to be configured to allow unsigned legacy addons. 
 
 See this **tutorial** for details on how to use legacy addons in Firefox Nightly edition: [Install Legacy Addons in Firefox Nightly 57+](http://pcadvice.co.nf/blog/install-legacy-addons-in-firefox-57).
