@@ -1,0 +1,46 @@
+
+* {
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  background: #ddd;
+  border-radius: 0;
+  border: 2px solid #999;
+  outline: 0;
+  text-align: center;
+}
+
+#title {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+#options-form {
+  margin-top: 20px;
+}
+
+.option {
+  margin-bottom: 20px;
+}
+
+.option-label {
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 0;
+  border: 2px solid #999;
+  outline: 0;
+}
+
+#message {
+  color: #2e8c34;
+  display: inline-block;
+  margin-left: 6px;
+}

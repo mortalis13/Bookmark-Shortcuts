@@ -1,11 +1,11 @@
 {
   "name": "Bookmark Shortcuts",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Adds shortcuts for Bookmark Toolbar to open bookmarks with the keyboard",
   
   "manifest_version": 2,
   "background": {
-    "scripts": ["utils.js", "main-bookmark-shortcuts.js"]
+    "scripts": ["utils.js", "main.js"]
   },
 
   "commands": {
@@ -152,9 +152,14 @@
     }
   },
   
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  
   "permissions": [
     "tabs",
     "bookmarks",
+    "storage",
     "<all_urls>"
   ]
 }

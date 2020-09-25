@@ -74,7 +74,19 @@ async function openBookmark(commandId) {
 async function openBookmarkByIndex(index, new_tab) {
   var bookmarks = await browser.bookmarks.getChildren(TOOLBAR_ID);
   
+  let folder_name = await getOption('folder_name', '');
+  console.log(`folder_name: ${folder_name}`);
+  
   if (bookmarks.length) {
+    if (folder_name) {
+      for (let bm of bookmarks) {
+        if (bm.type == 'folder' && bm.title == folder_name) {
+          bookmarks = await browser.bookmarks.getChildren(bm.id);
+          break;
+        }
+      }
+    }
+    
     var bm = bookmarks[index-1];
     if (bm) {
       if (bm.url) {
@@ -84,9 +96,6 @@ async function openBookmarkByIndex(index, new_tab) {
         else {
           browser.tabs.update({url: bm.url});
         }
-      }
-      else {
-        // folder
       }
     }
   }
