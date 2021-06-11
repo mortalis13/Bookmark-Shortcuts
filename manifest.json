@@ -1,6 +1,6 @@
 {
   "name": "Bookmark Shortcuts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Adds shortcuts for Bookmark Toolbar to open bookmarks with the keyboard",
   
   "manifest_version": 2,
