@@ -87,15 +87,21 @@ async function openBookmarkByIndex(index, new_tab) {
       }
     }
     
+    let tabs = await browser.tabs.query({currentWindow: true, active: true});
+    let pinned = false;
+    if (tabs && tabs.length > 0) {
+      pinned = tabs[0].pinned;
+      console.log('tab pinned:', pinned);
+    }
+    
     var bm = bookmarks[index-1];
-    if (bm) {
-      if (bm.url) {
-        if (new_tab === true) {
-          browser.tabs.create({url: bm.url});
-        }
-        else {
-          browser.tabs.update({url: bm.url});
-        }
+    if (bm && bm.url) {
+      if (pinned) new_tab = true;
+      if (new_tab === true) {
+        browser.tabs.create({url: bm.url});
+      }
+      else {
+        browser.tabs.update({url: bm.url});
       }
     }
   }
